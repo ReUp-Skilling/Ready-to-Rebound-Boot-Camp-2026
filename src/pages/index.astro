@@ -1,0 +1,267 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WeekCard from '../components/WeekCard.astro';
+import InstructorCard from '../components/InstructorCard.astro';
+import PainPointCard from '../components/PainPointCard.astro';
+import { instructors, weekProgram, painPoints } from '../data/content.js';
+---
+
+<Layout title="Ready to Rebound | Live Bootcamp">
+  <!-- Hero Section -->
+  <section class="bg-charcoal text-white min-h-screen flex items-center">
+    <div class="container mx-auto px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <!-- Hero Image -->
+        <div class="order-2 md:order-1">
+          <div class="relative">
+            <img 
+              src="/images/hero-image.jpg" 
+              alt="Professional woman with plant" 
+              class="w-full rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="order-1 md:order-2 text-center md:text-left">
+          <div class="mb-4">
+            <span class="text-mint text-sm font-bold tracking-wider uppercase">Live Bootcamp</span>
+          </div>
+          <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            READY TO REBOUND
+          </h1>
+          <p class="text-xl md:text-2xl font-semibold mb-4 text-gray-300">
+            Minimize the Time Between Fired and Hired
+          </p>
+          <p class="text-lg mb-8 text-gray-300 leading-relaxed">
+            A 4-week intensive boot camp designed for mid-career professionals who refuse to let uncertainty define their next chapter.
+          </p>
+          <p class="text-base mb-8 text-gray-400 italic">
+            Stay ready so you don't have to get ready.
+          </p>
+          
+          <a 
+            href="/signup" 
+            class="inline-block bg-mint text-charcoal font-bold text-lg px-10 py-4 rounded-lg hover:bg-opacity-90 transition-all hover:scale-105 shadow-lg"
+          >
+            SECURE YOUR SPOT - $97
+          </a>
+          
+          <div class="mt-6 text-sm text-gray-400">
+            <p>100% Virtual | Live Training</p>
+            <p>60 Day Access to Replays</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="bg-dark-blue text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-16">
+          If You're Worried About Your Career, You're Not Alone
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+          {painPoints.map(point => (
+            <PainPointCard 
+              title={point.title}
+              description={point.description}
+              icon={point.icon}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          What If You Could Future-Proof Your Career In Just 4 Weeks?
+        </h2>
+        <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+          The Ready to Rebound Boot Camp gives you everything you need to confidently navigate today's job market, whether you're actively searching or simply staying prepared.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          This isn't theory. It's actionable, step-by-step training from experts who know what works right now.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Week Transformation -->
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          Your 4-Week Transformation
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          {weekProgram.map(week => (
+            <WeekCard 
+              week={week.week}
+              title={week.title}
+              subtitle={week.subtitle}
+              description={week.description}
+              points={week.points}
+            />
+          ))}
+        </div>
+
+        <!-- Bonus Callout -->
+        <div class="mt-12 bg-mint bg-opacity-20 border-2 border-mint rounded-lg p-8 text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            BONUS: Messaging Workshop
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Led by Luis G. Noriega - Learn the exact messaging techniques that convert connections into opportunities, master follow-up strategies, and communicate your value with precision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructors Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+          Ready to Rebound Instructors
+        </h2>
+        <p class="text-center text-gray-600 mb-16 text-lg max-w-3xl mx-auto">
+          Learn from experienced professionals who understand the challenges of today's job market and have helped countless individuals successfully navigate career transitions.
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {instructors.map(instructor => (
+            <InstructorCard {...instructor} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="secure-spot" class="bg-gradient-to-br from-charcoal via-charcoal to-dark-blue text-white py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6">
+            Ready to Take Control of Your Career?
+          </h2>
+          <p class="text-xl text-gray-300 leading-relaxed">
+            Join Ready to Rebound and get the strategies, tools, and confidence you need to navigate today's job market successfully.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-gradient-to-br from-white/10 to-white/5 rounded-xl p-8 border border-mint/20">
+            <div class="text-6xl font-bold mb-3 text-mint">$97</div>
+            <p class="text-gray-300 text-base mb-8">One-time payment • Full access</p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-base">4 weeks of live training</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-base">60-day access to replays</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-base">Expert-led career strategies</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-mint flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-base">BONUS Messaging Workshop</span>
+              </li>
+            </ul>
+            <a 
+              href="/signup" 
+              class="w-full inline-block bg-mint text-charcoal font-bold text-lg px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all hover:scale-105 shadow-lg text-center"
+            >
+              ENROLL NOW
+            </a>
+          </div>
+          
+          <div class="flex flex-col justify-center">
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-md bg-mint/20 text-mint">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Fast Results</h3>
+                  <p class="text-gray-400">See improvements in your job search within weeks</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-md bg-mint/20 text-mint">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Proven Strategies</h3>
+                  <p class="text-gray-400">Methods that have helped thousands land their dream roles</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-12 w-12 rounded-md bg-mint/20 text-mint">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold mb-1">Expert Support</h3>
+                  <p class="text-gray-400">Learn from industry professionals with real experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <p class="text-sm text-gray-400">
+            Limited spots available • 100% Virtual • Money-back guarantee
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="container mx-auto px-4">
+      <div class="text-center">
+        <p class="text-sm">
+          © 2026 Ready to Rebound. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</Layout>

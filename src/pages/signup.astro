@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sign Up - Ready to Rebound">
+  <section class="bg-charcoal text-white min-h-screen flex items-center py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Secure Your Spot
+          </h1>
+          <p class="text-xl text-gray-300">
+            Join Ready to Rebound and transform your career in 4 weeks
+          </p>
+        </div>
+
+        <div class="bg-white bg-opacity-5 rounded-lg p-8 md:p-12 border border-mint border-opacity-30">
+          <form name="signup" method="POST" data-netlify="true">
+            <div class="mb-6">
+              <label for="name" class="block text-sm font-medium mb-2">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-mint focus:outline-none"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div class="mb-6">
+              <label for="email" class="block text-sm font-medium mb-2">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-mint focus:outline-none"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div class="mb-6">
+              <label for="phone" class="block text-sm font-medium mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-mint focus:outline-none"
+                placeholder="(555) 123-4567"
+              />
+            </div>
+
+            <div class="mb-6">
+              <label for="message" class="block text-sm font-medium mb-2">
+                Tell us about yourself (optional)
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full px-4 py-3 rounded-lg bg-gray-900 text-white border border-gray-700 focus:border-mint focus:outline-none"
+                placeholder="What's your current situation? What are you hoping to achieve?"
+              ></textarea>
+            </div>
+
+            <div class="mb-8">
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name="agree"
+                  required
+                  class="w-4 h-4 rounded bg-gray-900 border-gray-700 text-mint focus:ring-mint"
+                />
+                <span class="ml-3 text-sm">
+                  I agree to receive updates about Ready to Rebound
+                </span>
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-mint text-charcoal font-bold text-lg py-4 rounded-lg hover:bg-opacity-90 transition-all hover:scale-105 shadow-lg"
+            >
+              Secure Your Spot - $97
+            </button>
+
+            <p class="text-center text-gray-400 text-sm mt-6">
+              100% Virtual | Live Training
+            </p>
+          </form>
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="/" class="text-mint hover:underline">
+            ← Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
